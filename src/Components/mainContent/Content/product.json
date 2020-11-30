@@ -1,0 +1,32 @@
+{"products":[
+    {
+        "id":1,
+        "title":"dress1",
+        "description":"this is the first card",
+        "image":"/images/dress1.jpg",
+        "price":20,
+        "size":["sm","md", "lg"]
+    },{
+        "id":2,
+        "title":"dress2",
+        "description":"this is the second card",
+        "image":"/images/dress2.jpg",
+        "price":10,
+        "size":["sm","md", "lg"]
+    },{
+        "id":3,
+        "title":"dress3",
+        "description":"this is the third card",
+        "image":"/images/dress3.jpg",
+        "price":30,
+        "size":["sm","md", "lg"]
+    },
+    {
+        "id":4,
+        "title":"dress4",
+        "description":"this is the forth card",
+        "image":"/images/dress1.jpg",
+        "price":40,
+        "size":["sm","md", "lg"]
+    }
+]}

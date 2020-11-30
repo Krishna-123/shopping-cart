@@ -22,8 +22,8 @@ export default function SpacingGrid() {
           container
           direction="row"
           justify="space-around"
-          alignItems="center"
-          spacing={10}
+          alignItems="flex-start"
+          spacing={4}
         >
           <Filter />
           <Content />

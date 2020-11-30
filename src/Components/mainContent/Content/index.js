@@ -1,27 +1,24 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import { Grid } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    "& > *": {
-      margin: theme.spacing(1),
-      width: theme.spacing(16),
-      height: theme.spacing(16),
-    },
-  },
-}));
+import Card from "./card";
+import product from "./product.json";
 
-export default function Content() {
-  const classes = useStyles();
-
+const Cart = (props) => {
   return (
-    <div className={classes.root}>
-      <Paper>
-        <p>Content</p>
-      </Paper>
-    </div>
+    <Grid item xs={12} sm={6} md={4}>
+      <Grid
+        container
+        direction="row"
+        justify="space-around"
+        alignItems="center"
+        spacing={2}
+      >
+        {product.products.map((product) => (
+          <Card key={product.id} product={product} />
+        ))}
+      </Grid>
+    </Grid>
   );
-}
+};
+export default Cart;
