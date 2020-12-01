@@ -19,15 +19,15 @@ export default function SpacingGrid() {
     <Grid container className={classes.root} spacing={2}>
       <Grid
         container
-        spacing={3}
+        spacing={1}
         direction="row"
         justify="center"
         alignItems="flex-start"
       >
-        <Grid item container xs={12} md>
+        <Grid item container xs={12} md={2}>
           <Filter />
         </Grid>
-        <Grid item container xs={12} md={7}>
+        <Grid item container xs={12} md={6}>
           <Content />
         </Grid>
         <Grid item container xs={12} md>
