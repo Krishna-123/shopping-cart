@@ -19,6 +19,9 @@ const useStyles = makeStyles({
   cardContent: {
     flexGrow: 1,
   },
+  actions: {
+    justifyContent: "center",
+  },
 });
 
 export default function MediaCard(props) {
@@ -26,7 +29,7 @@ export default function MediaCard(props) {
   const { title, description, image, price, size } = props.product;
 
   return (
-    <Grid item xs={12} sm={6} md={4}>
+    <Grid item xs={12} md={6}>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia className={classes.media} image={image} title={title} />
@@ -36,8 +39,8 @@ export default function MediaCard(props) {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Button size="small" variant="outlined" color="primary">
+        <CardActions className={classes.actions}>
+          <Button size="small" variant="contained" color="primary">
             Add to Cart
           </Button>
         </CardActions>
