@@ -9,6 +9,8 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 
 import Products from "../Content/product.json";
 
@@ -22,7 +24,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
   section2: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(1),
+    position: "relative",
+    overflow: "auto",
+    maxHeight: 300,
   },
   section3: {
     margin: theme.spacing(3, 1, 1),
@@ -30,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   content: {
+    margin: theme.spacing(1, 0),
     display: "flex",
     alignItems: "center",
   },
@@ -49,49 +55,72 @@ export default function MiddleDividers() {
   const classes = useStyles();
 
   return (
-    <Paper>
-      <div className={classes.root}>
-        <div className={classes.section1}>
-          <Grid container alignItems="center">
-            <Grid item xs>
-              <Typography gutterBottom variant="h4">
-                Total
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography gutterBottom variant="h6">
-                $4.50
-              </Typography>
-            </Grid>
+    <Paper className={classes.root}>
+      <div className={classes.section1}>
+        <Grid container alignItems="center">
+          <Grid item xs>
+            <Typography gutterBottom variant="h4">
+              Total
+            </Typography>
           </Grid>
-        </div>
-        <Divider variant="middle" />
-        <div className={classes.section2}>
-          <Card className={classes.content}>
-            <CardMedia
-              className={classes.cover}
-              image="https://source.unsplash.com/random/100x100"
-              title={Products.products[0].description}
-            />
+          <Grid item>
+            <Typography gutterBottom variant="h6">
+              $4.50
+            </Typography>
+          </Grid>
+        </Grid>
+      </div>
+      <Divider variant="middle" />
+      {/* <List component="div" className={classes.section2}>
+        <ListItem> */}
+      <div className={classes.section2}>
+        <Card className={classes.content}>
+          <CardMedia
+            className={classes.cover}
+            image="https://source.unsplash.com/random/100x100"
+            title={Products.products[0].description}
+          />
 
-            <CardContent className={classes.content}>
-              <div className={classes.details}>
-                <Typography component="h6">
-                  {Products.products[0].description}
-                </Typography>
-                <Typography component="h6">
-                  1 X ${Products.products[0].price}
-                </Typography>
-                <Button color="primary">Remove from Cart</Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-        <div className={classes.section3}>
-          <Button color="primary" variant="contained">
-            Proceed to Payment
-          </Button>
-        </div>
+          <CardContent className={classes.content}>
+            <div className={classes.details}>
+              <Typography component="h6">
+                {Products.products[0].description}
+              </Typography>
+              <Typography component="h6">
+                1 X ${Products.products[0].price}
+              </Typography>
+              <Button color="secondary">Remove from Cart</Button>
+            </div>
+          </CardContent>
+        </Card>
+        {/* </ListItem>
+        <ListItem> */}
+        <Card className={classes.content}>
+          <CardMedia
+            className={classes.cover}
+            image="https://source.unsplash.com/random/100x100"
+            title={Products.products[0].description}
+          />
+
+          <CardContent className={classes.content}>
+            <div className={classes.details}>
+              <Typography component="h6">
+                {Products.products[0].description}
+              </Typography>
+              <Typography component="h6">
+                1 X ${Products.products[0].price}
+              </Typography>
+              <Button color="secondary">Remove from Cart</Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+      {/* </ListItem>
+      </List> */}
+      <div className={classes.section3}>
+        <Button color="primary" variant="contained">
+          Proceed to Payment
+        </Button>
       </div>
     </Paper>
   );

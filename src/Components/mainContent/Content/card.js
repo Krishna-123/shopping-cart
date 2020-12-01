@@ -8,10 +8,11 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import { CardContent, Grid, Typography } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
     width: 300,
+    // margin: theme.spacing(1),
   },
   media: {
     height: 500,
@@ -22,15 +23,15 @@ const useStyles = makeStyles({
   actions: {
     justifyContent: "center",
   },
-});
+}));
 
 export default function MediaCard(props) {
   const classes = useStyles();
   const { title, description, image, price, size } = props.product;
 
   return (
-    <Grid item xs={12} md={6}>
-      <Card className={classes.root}>
+    <Grid item xs={12} md={6} className={classes.root}>
+      <Card>
         <CardActionArea>
           <CardMedia className={classes.media} image={image} title={title} />
           <CardContent className={classes.cardContent}>

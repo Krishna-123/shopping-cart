@@ -28,5 +28,20 @@
         "image":"/images/dress1.jpg",
         "price":40,
         "size":["sm","md", "lg"]
+    },{
+        "id":5,
+        "title":"dress3",
+        "description":"this is the third card",
+        "image":"/images/dress3.jpg",
+        "price":30,
+        "size":["sm","md", "lg"]
+    },
+    {
+        "id":6,
+        "title":"dress4",
+        "description":"this is the forth card",
+        "image":"/images/dress1.jpg",
+        "price":40,
+        "size":["sm","md", "lg"]
     }
 ]}

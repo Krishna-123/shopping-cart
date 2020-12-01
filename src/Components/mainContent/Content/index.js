@@ -9,6 +9,9 @@ import Card from "./card";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    position: "relative",
+    overflow: "auto",
+    maxHeight: 1200,
   },
 }));
 
