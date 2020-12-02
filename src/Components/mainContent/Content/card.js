@@ -41,7 +41,12 @@ export default function MediaCard(props) {
           </CardContent>
         </CardActionArea>
         <CardActions className={classes.actions}>
-          <Button size="small" variant="contained" color="primary">
+          <Button
+            size="small"
+            variant="contained"
+            color="primary"
+            onClick={props.addToCart}
+          >
             Add to Cart
           </Button>
         </CardActions>

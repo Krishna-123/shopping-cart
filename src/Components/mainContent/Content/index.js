@@ -3,7 +3,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-import Product from "./product.json";
 import Card from "./card";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Content = (props) => {
   const classes = useStyles();
+  const { Products, changeCartItems } = props;
 
   return (
     <Grid
@@ -27,8 +27,12 @@ const Content = (props) => {
       spacing={2}
       className={classes.root}
     >
-      {Product.products.map((product) => (
-        <Card key={product.id} product={product} />
+      {Products.map((product) => (
+        <Card
+          key={product.id}
+          product={product}
+          addToCart={() => changeCartItems(product.id)}
+        />
       ))}
     </Grid>
   );

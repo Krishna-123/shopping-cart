@@ -9,10 +9,6 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-
-import Products from "../Content/product.json";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,8 +47,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MiddleDividers() {
+export default function MiddleDividers(props) {
   const classes = useStyles();
+  const { Products, Cart, changeCartItems, TotalCartItems, TotalPrice } = props;
+  const renderCards = passProduct(Products, changeCartItems, classes);
 
   return (
     <Paper className={classes.root}>
@@ -65,58 +63,28 @@ export default function MiddleDividers() {
           </Grid>
           <Grid item>
             <Typography gutterBottom variant="h6">
-              $4.50
+              ${TotalPrice}
             </Typography>
           </Grid>
         </Grid>
+        {(Cart.length && (
+          <Typography gutterBottom variant="subtitle1">
+            You have total {TotalCartItems} Items
+          </Typography>
+        )) ||
+          null}
       </div>
       <Divider variant="middle" />
-      {/* <List component="div" className={classes.section2}>
-        <ListItem> */}
+
       <div className={classes.section2}>
-        <Card className={classes.content}>
-          <CardMedia
-            className={classes.cover}
-            image="https://source.unsplash.com/random/100x100"
-            title={Products.products[0].description}
-          />
-
-          <CardContent className={classes.content}>
-            <div className={classes.details}>
-              <Typography component="h6">
-                {Products.products[0].description}
-              </Typography>
-              <Typography component="h6">
-                1 X ${Products.products[0].price}
-              </Typography>
-              <Button color="secondary">Remove from Cart</Button>
-            </div>
-          </CardContent>
-        </Card>
-        {/* </ListItem>
-        <ListItem> */}
-        <Card className={classes.content}>
-          <CardMedia
-            className={classes.cover}
-            image="https://source.unsplash.com/random/100x100"
-            title={Products.products[0].description}
-          />
-
-          <CardContent className={classes.content}>
-            <div className={classes.details}>
-              <Typography component="h6">
-                {Products.products[0].description}
-              </Typography>
-              <Typography component="h6">
-                1 X ${Products.products[0].price}
-              </Typography>
-              <Button color="secondary">Remove from Cart</Button>
-            </div>
-          </CardContent>
-        </Card>
+        {(Cart.length &&
+          Cart.map((item) => renderCards(item.id, item.count))) || (
+          <Typography gutterBottom variant="body1">
+            Add Items to the Cart
+          </Typography>
+        )}
       </div>
-      {/* </ListItem>
-      </List> */}
+
       <div className={classes.section3}>
         <Button color="primary" variant="contained">
           Proceed to Payment
@@ -125,3 +93,31 @@ export default function MiddleDividers() {
     </Paper>
   );
 }
+
+const passProduct = (Products, changeCartItems, classes) => (id, count) =>
+  CartItemToProduct(Products, changeCartItems, classes, id, count);
+
+const CartItemToProduct = (Products, changeCartItems, classes, id, count) => {
+  const index = Products.findIndex((product) => product.id === id);
+  return (
+    <Card className={classes.content}>
+      <CardMedia
+        className={classes.cover}
+        image={Products[index].image}
+        title={Products[index].title}
+      />
+
+      <CardContent className={classes.content}>
+        <div className={classes.details}>
+          <Typography component="h6">{Products[index].title}</Typography>
+          <Typography component="h6">
+            {count} X ${Products[index].price}
+          </Typography>
+          <Button color="secondary" onClick={() => changeCartItems(id)}>
+            Remove from Cart
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
