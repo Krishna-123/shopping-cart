@@ -18,41 +18,22 @@ export default function SpacingGrid() {
 
   const [cart, setCart] = useState([]);
   // currently this is static so we can do like this.
-  const [products, setProducts] = useState(Products.products);
+  const [products, setProducts] = useState({});
+  const [productKeys, setProductKeys] = useState([]);
   const [totalCartItem, setTotalCartItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState("0.00");
 
   useEffect(() => {
-    console.log("cart has been changed", cart);
-  }, [cart]);
-
-  const addToCart = (id) => {
-    const currentCart = cart;
-    if (currentCart.length) {
-      let cartItemIndex = currentCart.findIndex((item) => item.id === id);
-      setCart((prevCart) =>
-        cartItemIndex >= 0
-          ? [
-              ...prevCart.slice(0, cartItemIndex),
-              { id, count: prevCart[cartItemIndex].count + 1 },
-              ...prevCart.slice(cartItemIndex + 1),
-            ]
-          : [...prevCart, { id, count: 1 }]
-      );
-    } else {
-      setCart([{ id, count: 1 }]);
-    }
-  };
+    setProducts(Products.products);
+    setProductKeys(Object.keys(Products.products));
+  }, []);
 
   useEffect(() => {
     const newtotalPrice =
       (cart.length &&
         cart.reduce(
           (tPrice, item) =>
-            tPrice +
-            products[products.findIndex((product) => product.id === item.id)]
-              .price *
-              item.count.toFixed(2),
+            tPrice + products[item.id].price * item.count.toFixed(2),
           0.0
         )) ||
       "0.00";
@@ -62,6 +43,30 @@ export default function SpacingGrid() {
     setTotalCartItem(totalItems);
     setTotalPrice(newtotalPrice);
   }, [cart, products]);
+
+  useEffect(() => {
+    console.log("cart has been changed", cart);
+  }, [cart]);
+
+  const addToCart = (productKey) => {
+    const currentCart = cart;
+    if (currentCart.length) {
+      let cartItemIndex = currentCart.findIndex(
+        (item) => item.id === productKey
+      );
+      setCart((prevCart) =>
+        cartItemIndex >= 0
+          ? [
+              ...prevCart.slice(0, cartItemIndex),
+              { id: productKey, count: prevCart[cartItemIndex].count + 1 },
+              ...prevCart.slice(cartItemIndex + 1),
+            ]
+          : [...prevCart, { id: productKey, count: 1 }]
+      );
+    } else {
+      setCart([{ id: productKey, count: 1 }]);
+    }
+  };
 
   const removeFromCart = (id) => {
     const currentCart = cart;
@@ -82,11 +87,16 @@ export default function SpacingGrid() {
           <Filter Products={products} changeProducts={setProducts} />
         </Grid>
         <Grid item container xs={12} md={6}>
-          <Content Products={products} changeCartItems={addToCart} />
+          <Content
+            Products={products}
+            ProductKeys={productKeys}
+            changeCartItems={addToCart}
+          />
         </Grid>
         <Grid item container xs={12} md>
           <Cart
             Products={products}
+            ProductKeys={productKeys}
             Cart={cart}
             changeCartItems={removeFromCart}
             TotalCartItems={totalCartItem}

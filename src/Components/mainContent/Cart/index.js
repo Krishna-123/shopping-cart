@@ -80,7 +80,7 @@ export default function MiddleDividers(props) {
         {(Cart.length &&
           Cart.map((item) => renderCards(item.id, item.count))) || (
           <Typography gutterBottom variant="body1">
-            Add Items to the Cart
+            Add Items to the Cartet
           </Typography>
         )}
       </div>
@@ -98,20 +98,19 @@ const passProduct = (Products, changeCartItems, classes) => (id, count) =>
   CartItemToProduct(Products, changeCartItems, classes, id, count);
 
 const CartItemToProduct = (Products, changeCartItems, classes, id, count) => {
-  const index = Products.findIndex((product) => product.id === id);
   return (
     <Card className={classes.content}>
       <CardMedia
         className={classes.cover}
-        image={Products[index].image}
-        title={Products[index].title}
+        image={Products[id].image}
+        title={Products[id].title}
       />
 
       <CardContent className={classes.content}>
         <div className={classes.details}>
-          <Typography component="h6">{Products[index].title}</Typography>
+          <Typography component="h6">{Products[id].title}</Typography>
           <Typography component="h6">
-            {count} X ${Products[index].price}
+            {count} X ${Products[id].price}
           </Typography>
           <Button color="secondary" onClick={() => changeCartItems(id)}>
             Remove from Cart

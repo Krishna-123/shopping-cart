@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Content = (props) => {
   const classes = useStyles();
-  const { Products, changeCartItems } = props;
+  const { Products, changeCartItems, ProductKeys } = props;
 
   return (
     <Grid
@@ -27,11 +27,11 @@ const Content = (props) => {
       spacing={2}
       className={classes.root}
     >
-      {Products.map((product) => (
+      {ProductKeys.map((productKey) => (
         <Card
-          key={product.id}
-          product={product}
-          addToCart={() => changeCartItems(product.id)}
+          key={productKey}
+          product={Products[productKey]}
+          addToCart={() => changeCartItems(productKey)}
         />
       ))}
     </Grid>
