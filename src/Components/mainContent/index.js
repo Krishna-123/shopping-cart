@@ -96,7 +96,6 @@ export default function SpacingGrid() {
         <Grid item container xs={12} md>
           <Cart
             Products={products}
-            ProductKeys={productKeys}
             Cart={cart}
             changeCartItems={removeFromCart}
             TotalCartItems={totalCartItem}

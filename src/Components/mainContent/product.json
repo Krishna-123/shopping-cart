@@ -5,7 +5,16 @@
         "description":"this is the first card",
         "image":"/images/dress1.jpg",
         "price":20,
-        "size":["sm","md", "lg"]
+        "size":["sm","md", "lg"],
+        "totalAvailableCount":10,
+        "availableSizesCount":{
+            "sm":2,
+            "md":4,
+            "lg":4
+        },
+        "rating":3,
+        "reviewCount":3,
+        "reviews":[{"customerId":"cust1", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust2", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust3", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}]
     },
     "B":{
         "id":2,
@@ -13,7 +22,16 @@
         "description":"this is the second card",
         "image":"/images/dress2.jpg",
         "price":10,
-        "size":["sm","md", "lg"]
+        "size":["sm","md", "lg"],
+        "totalAvailableCount":10,
+        "availableSizesCount":{
+            "sm":0,
+            "md":4,
+            "lg":4
+        },
+        "rating":1,
+        "reviewCount":2,
+        "reviews":[{"customerId":"cust1", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust2", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust3", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}]
     },
     "C":{
         "id":3,
@@ -21,7 +39,16 @@
         "description":"this is the third card",
         "image":"/images/dress3.jpg",
         "price":30,
-        "size":["sm","md", "lg"]
+        "size":["sm","md", "lg"],
+        "totalAvailableCount":10,
+        "availableSizesCount":{
+            "sm":2,
+            "md":4,
+            "lg":4
+        },
+        "rating":2,
+        "reviewCount":3,
+        "reviews":[{"customerId":"cust1", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust2", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust3", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}]
     },
     "D":{
         "id":4,
@@ -29,7 +56,16 @@
         "description":"this is the forth card",
         "image":"/images/dress1.jpg",
         "price":40,
-        "size":["sm","md", "lg"]
+        "size":["sm","md", "lg"],
+        "totalAvailableCount":10,
+        "availableSizesCount":{
+            "sm":2,
+            "md":4,
+            "lg":4
+        },
+        "rating":2,
+        "reviewCount":3,
+        "reviews":[{"customerId":"cust1", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust2", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust3", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}]
     },
     "E":{
         "id":5,
@@ -37,7 +73,16 @@
         "description":"this is the third card",
         "image":"/images/dress3.jpg",
         "price":30,
-        "size":["sm","md", "lg"]
+        "size":["sm","md", "lg"],
+        "totalAvailableCount":10,
+        "availableSizesCount":{
+            "sm":2,
+            "md":4,
+            "lg":4
+        },
+        "rating":2,
+        "reviewCount":3,
+        "reviews":[{"customerId":"cust1", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust2", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust3", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}]
     },
     "F":{
         "id":6,
@@ -45,6 +90,15 @@
         "description":"this is the forth card",
         "image":"/images/dress1.jpg",
         "price":40,
-        "size":["sm","md", "lg"]
+        "size":["sm","md", "lg"],
+        "totalAvailableCount":10,
+        "availableSizesCount":{
+            "sm":2,
+            "md":4,
+            "lg":4
+        },
+        "rating":2,
+        "reviewCount":3,
+        "reviews":[{"customerId":"cust1", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust2", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}, {"customerId":"cust3", "custRating":3, "custTitle":"product is good", "custDescription":"jsdfsjdfijsifjsijfd"}]
     }
 }}

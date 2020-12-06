@@ -41,8 +41,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "flex-end",
   },
   cover: {
-    height: 100,
-    width: 100,
+    display: "flex",
+    flex: 1,
+    height: "auto",
+    maxWidth: "100%",
     margin: theme.spacing(1),
   },
 }));
@@ -94,13 +96,14 @@ export default function MiddleDividers(props) {
   );
 }
 
-const passProduct = (Products, changeCartItems, classes) => (id, count) =>
-  CartItemToProduct(Products, changeCartItems, classes, id, count);
+const passProduct = (...args) => (...args1) =>
+  CartItemToProduct.apply(null, [...args, ...args1]);
 
 const CartItemToProduct = (Products, changeCartItems, classes, id, count) => {
   return (
     <Card className={classes.content}>
       <CardMedia
+        component="img"
         className={classes.cover}
         image={Products[id].image}
         title={Products[id].title}
